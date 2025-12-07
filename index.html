@@ -3,139 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn Marathi with Barakhadi - Interactive Marathi language learning platform">
-    <title>बाराखडी - Barakhadi | Learn Marathi</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta name="description" content="Learn Marathi the fun way with Barakhadi - Interactive activities for conversation, reading, and writing designed for kids, loved by families">
+    <meta name="keywords" content="Marathi, learn Marathi, Marathi learning, Devanagari, Marathi for kids, language learning">
+    <title>Barakhadi - Learn Marathi the Fun Way</title>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/barakhadi_favicon.png">
 
-        .container {
-            max-width: 800px;
-            width: 100%;
-            background: white;
-            border-radius: 20px;
-            padding: 60px 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .hero {
-            margin-bottom: 40px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            color: #764ba2;
-            margin-bottom: 30px;
-        }
-
-        .description {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 50px;
-            line-height: 1.8;
-        }
-
-        .coming-soon {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 40px;
-        }
-
-        .coming-soon h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-
-        .coming-soon p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 40px 25px;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-
-            .description {
-                font-size: 1.1rem;
-            }
-
-            .coming-soon h3 {
-                font-size: 1.5rem;
-            }
-
-            .coming-soon p {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero h2 {
-                font-size: 1.3rem;
-            }
-
-            .description {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <h1>बाराखडी</h1>
-            <h2>Barakhadi</h2>
-        </div>
 
-        <div class="description">
-            <p>मराठी भाषा शिकण्यासाठी एक नवीन, आधुनिक आणि सोपा मार्ग.</p>
-            <p>A modern, interactive platform to learn the beautiful Marathi language.</p>
-        </div>
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/mainbarakhadilogo.png" alt="Barakhadi Logo - बाराखडी">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="for-parents.html">For Parents</a></li>
+                <li><a href="for-teachers.html">For Teachers</a></li>
+                <li><a href="for-learners.html">For Learners</a></li>
+                <li><a href="activities.html">Activities</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="#" class="btn btn-secondary" style="padding: 12px 24px; font-size: 0.9rem;">Login</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="coming-soon">
-            <h3>लवकरच येत आहे</h3>
-            <h3>Coming Soon</h3>
-            <p>We're building something special for Marathi learners. Stay tuned!</p>
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- SECTION 1: HERO -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Learn Marathi the Fun Way</h1>
+                        <p class="subtitle">Interactive activities for conversation, reading, and writing—designed for kids, loved by families.</p>
+                        <div class="hero-cta">
+                            <a href="#activities-preview" class="btn btn-primary">Try Free Activities</a>
+                            <a href="how-it-works.html" class="btn btn-secondary">See How It Works</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="assets/images/hero_image.png" alt="Child learning Marathi on tablet" loading="eager">
+                    </div>
+                </div>
+
+                <!-- Devanagari Tagline -->
+                <div class="tagline-devanagari">
+                    <img src="assets/images/product_name.png" alt="चला शिकू या मराठी" loading="eager">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: AUDIENCE CARDS (3 Cards) -->
+        <section class="audience-cards">
+            <div class="container">
+                <h2>Who Is This For?</h2>
+
+                <div class="cards-grid">
+                    <!-- Card 1: Parents -->
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">👨‍👩‍👧‍👦</div>
+                        <h3>For Parents</h3>
+                        <p>Help your kids connect with their heritage—effortlessly.</p>
+                        <p class="pain-point">"I want my kids to speak Marathi with their grandparents"</p>
+                        <a href="for-parents.html" class="card-link">Learn More →</a>
+                    </article>
+
+                    <!-- Card 2: Teachers -->
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">🏫</div>
+                        <h3>For Teachers</h3>
+                        <p>Teach Marathi with a complete curriculum and easy classroom tools.</p>
+                        <p class="pain-point">Need structured lessons that engage students?</p>
+                        <a href="for-teachers.html" class="card-link">Explore Features →</a>
+                    </article>
+
+                    <!-- Card 3: Adult Learners -->
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">📚</div>
+                        <h3>For Adult Learners</h3>
+                        <p>Never too late to learn. Study at your own pace.</p>
+                        <p class="pain-point">Want to connect with your Marathi roots?</p>
+                        <a href="for-learners.html" class="card-link">Start Learning →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: LEARNING ANGLES (3 Skills - Alternating Layout) -->
+        <section class="learning-angles">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 64px;">Master Marathi Through Three Core Skills</h2>
+
+                <!-- Skill 1: Conversation (Image Right) -->
+                <article class="skill-block">
+                    <div class="alternate-section">
+                        <div class="skill-content">
+                            <div class="skill-icon" aria-hidden="true">💬</div>
+                            <h3>Conversation</h3>
+                            <p>Practice real-world dialogues covering 30 kid-friendly topics. From introducing yourself to talking about your day—build confidence through interactive conversations.</p>
+                            <a href="activities.html#conversation" class="btn btn-primary">Explore Conversations →</a>
+                        </div>
+                        <div class="skill-visual" aria-hidden="true">💬</div>
+                    </div>
+                </article>
+
+                <!-- Skill 2: Reading (Image Left) -->
+                <article class="skill-block">
+                    <div class="alternate-section reverse">
+                        <div class="skill-content">
+                            <div class="skill-icon" aria-hidden="true">📖</div>
+                            <h3>Reading</h3>
+                            <p>Learn the Marathi alphabet and build reading fluency. Interactive lessons guide you from letters to words to full sentences with audio support.</p>
+                            <a href="activities.html#reading" class="btn btn-primary">Explore Reading →</a>
+                        </div>
+                        <div class="skill-visual" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);" aria-hidden="true">📖</div>
+                    </div>
+                </article>
+
+                <!-- Skill 3: Writing (Image Right) -->
+                <article class="skill-block">
+                    <div class="alternate-section">
+                        <div class="skill-content">
+                            <div class="skill-icon" aria-hidden="true">✍️</div>
+                            <h3>Writing</h3>
+                            <p>Master writing Devanagari letters, words, and sentences. Trace, practice, and perfect your handwriting with step-by-step guided activities.</p>
+                            <a href="activities.html#writing" class="btn btn-primary">Explore Writing →</a>
+                        </div>
+                        <div class="skill-visual" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);" aria-hidden="true">✍️</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SECTION 4: BENEFITS (3 Benefits) -->
+        <section class="benefits">
+            <div class="container">
+                <h2>Why Families Choose Barakhadi</h2>
+
+                <div class="benefits-grid">
+                    <!-- Benefit 1 -->
+                    <article class="benefit-item">
+                        <div class="benefit-icon" aria-hidden="true">😊</div>
+                        <div class="benefit-text">
+                            <h3>Effortless Learning</h3>
+                            <p>Fun, interactive activities keep kids engaged—learning feels like play, not work.</p>
+                        </div>
+                    </article>
+
+                    <!-- Benefit 2 -->
+                    <article class="benefit-item">
+                        <div class="benefit-icon" aria-hidden="true">📱</div>
+                        <div class="benefit-text">
+                            <h3>Learn Anywhere</h3>
+                            <p>Study at home, in class, or on the go. Works on any device—tablet, phone, or computer.</p>
+                        </div>
+                    </article>
+
+                    <!-- Benefit 3 -->
+                    <article class="benefit-item">
+                        <div class="benefit-icon" aria-hidden="true">🔄</div>
+                        <div class="benefit-text">
+                            <h3>Reinforced Learning</h3>
+                            <p>Practice activities unlimited times to build confidence, fluency, and long-term retention.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: ACTIVITIES PREVIEW -->
+        <section class="activities-preview" id="activities-preview">
+            <div class="container">
+                <h2>Try It Yourself—Free!</h2>
+                <p class="subtitle-center">No signup required. Start learning in 30 seconds.</p>
+
+                <!-- Level Tabs -->
+                <div class="level-tabs" role="tablist">
+                    <button class="level-tab active" role="tab" aria-selected="true">Level 0 - शिशु वर्ग</button>
+                    <button class="level-tab" role="tab" aria-selected="false">Level 1 - पहिली</button>
+                    <button class="level-tab" role="tab" aria-selected="false">Level 2 - दुसरी</button>
+                </div>
+
+                <div class="activities-grid">
+                    <!-- Activity 1: Conversation -->
+                    <article class="activity-card">
+                        <div class="activity-thumbnail" aria-hidden="true">💬</div>
+                        <div class="activity-content">
+                            <h3>Conversation Activity</h3>
+                            <p>Family Introductions - Learn how to introduce yourself and your family members in Marathi.</p>
+                            <a href="#" class="btn btn-primary" style="width: 100%;">Start Activity →</a>
+                        </div>
+                    </article>
+
+                    <!-- Activity 2: Vocabulary -->
+                    <article class="activity-card">
+                        <div class="activity-thumbnail" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);" aria-hidden="true">ड</div>
+                        <div class="activity-content">
+                            <h3>Vocabulary - ड</h3>
+                            <p>Learn words starting with the Devanagari letter ड with colorful visuals and clear audio.</p>
+                            <a href="#" class="btn btn-primary" style="width: 100%;">Start Activity →</a>
+                        </div>
+                    </article>
+
+                    <!-- Activity 3: Writing -->
+                    <article class="activity-card">
+                        <div class="activity-thumbnail" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);" aria-hidden="true">ग</div>
+                        <div class="activity-content">
+                            <h3>Writing - ग</h3>
+                            <p>Trace and write the letter ग with step-by-step guidance and unlimited practice.</p>
+                            <a href="#" class="btn btn-primary" style="width: 100%;">Start Activity →</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- CTA Below Activities -->
+                <div class="activity-cta-section">
+                    <p>Want full access to 100+ activities across all levels?</p>
+                    <a href="contact.html" class="btn btn-primary">Get Started →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: ABOUT US -->
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="placeholder">
+                            <div>
+                                <strong>Team Photo</strong><br><br>
+                                Deepti Pandit<br>
+                                Elementary Teacher (15 yrs)<br>
+                                Marathi Teacher (20+ yrs)<br><br>
+                                Pushkar Damle<br>
+                                Product & Analytics (22 yrs)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h2>Created by Teachers Who Care</h2>
+                        <p>Barakhadi was born from a simple goal: help families keep their Marathi heritage alive.</p>
+                        <p>Created by experienced Marathi teachers and education technology experts, our program combines proven language-learning methods with modern, interactive tools. Whether your child is learning their first Devanagari letters or preparing for a biliteracy exam, we're here to make Marathi accessible and—most importantly—fun.</p>
+                        <p>More than just an app, Barakhadi is a bridge between generations. Because language isn't just words—it's culture, stories, and connection.</p>
+                        <a href="about.html" class="btn btn-secondary">Read Our Full Story →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: FINAL CTA -->
+        <section class="final-cta">
+            <div class="container">
+                <h2>Ready to Start Your Marathi Journey?</h2>
+                <div class="final-cta-buttons">
+                    <a href="#activities-preview" class="btn btn-outline-white">Try Free Activities</a>
+                    <a href="contact.html" class="btn btn-outline-white">Contact Us to Get Started</a>
+                </div>
+                <p class="microcopy">Questions? We're here to help. <a href="faq.html">View FAQ →</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1: Product -->
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="for-parents.html">For Parents</a></li>
+                        <li><a href="for-teachers.html">For Teachers</a></li>
+                        <li><a href="for-learners.html">For Learners</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Resources -->
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="activities.html">Activities</a></li>
+                        <li><a href="how-it-works.html">How It Works</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Company -->
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Legal -->
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Connect -->
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:hello@barakhadi.com">hello@barakhadi.com</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Barakhadi. All rights reserved. Made with ❤️ for Marathi learners everywhere.</p>
+            </div>
         </div>
-    </div>
+    </footer>
+
 </body>
 </html>
