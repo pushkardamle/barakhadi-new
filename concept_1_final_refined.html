@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept 1 Final: Photo Strip - Refined</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 80px 60px;
+            max-width: 500px;
+        }
+        
+        .hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Photo strip confined to right 60% */
+        .photo-strip {
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%) rotate(8deg);
+            display: flex;
+            gap: 25px;
+            width: 60%;
+        }
+        
+        .photo-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .photo-card {
+            width: 260px;
+            height: 200px;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .photo-inner {
+            width: 100%;
+            height: 100%;
+            background: #e0e7ff;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 600;
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .photo-column:nth-child(2) {
+            margin-top: 50px;
+        }
+        
+        .photo-column:nth-child(3) {
+            margin-top: -30px;
+        }
+        
+        .featured-photo {
+            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+            border: 3px solid white;
+        }
+        
+        .featured-photo .photo-inner {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            color: #d63031;
+        }
+        
+        /* Very subtle floating animations - slower and shorter distance */
+        .photo-column:nth-child(1) .photo-card:nth-child(1) {
+            animation: float1 12s ease-in-out infinite;
+        }
+        
+        .photo-column:nth-child(1) .photo-card:nth-child(2) {
+            animation: float2 14s ease-in-out infinite;
+        }
+        
+        .photo-column:nth-child(2) .photo-card:nth-child(1) {
+            animation: float3 11s ease-in-out infinite;
+        }
+        
+        .photo-column:nth-child(2) .photo-card:nth-child(2) {
+            animation: float4 13s ease-in-out infinite;
+        }
+        
+        .photo-column:nth-child(3) .photo-card:nth-child(1) {
+            animation: float5 15s ease-in-out infinite;
+        }
+        
+        .photo-column:nth-child(3) .photo-card:nth-child(2) {
+            animation: float6 12s ease-in-out infinite;
+        }
+        
+        /* Subtle movement - only 8-10px travel distance */
+        @keyframes float1 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes float3 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-9px); }
+        }
+        
+        @keyframes float4 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        @keyframes float5 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes float6 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-9px); }
+        }
+        
+        .notes {
+            padding: 40px 60px;
+            background: #f8f9fa;
+        }
+        
+        .notes h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .notes ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .notes li {
+            padding: 8px 0;
+            color: #666;
+        }
+        
+        .notes li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .change-highlight {
+            background: #d4edda;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>बरखड़ी<br>Learn & Play</h1>
+                <p>Interactive Hindi learning activities for children</p>
+                <a href="#" class="cta-button">Start Learning Today</a>
+            </div>
+            
+            <div class="photo-strip">
+                <div class="photo-column">
+                    <div class="photo-card">
+                        <div class="photo-inner">Clock Learning<br>⏰<br><small>Time activities</small></div>
+                    </div>
+                    <div class="photo-card">
+                        <div class="photo-inner">Number Tracing<br>1️⃣2️⃣3️⃣<br><small>Count & write</small></div>
+                    </div>
+                </div>
+                <div class="photo-column">
+                    <div class="photo-card featured-photo">
+                        <div class="photo-inner">Word Search<br>🔍<br><small>Find & learn</small></div>
+                    </div>
+                    <div class="photo-card">
+                        <div class="photo-inner">Crossword Puzzles<br>📝<br><small>Think & solve</small></div>
+                    </div>
+                </div>
+                <div class="photo-column">
+                    <div class="photo-card">
+                        <div class="photo-inner">Join the Dots<br>🎨<br><small>Connect & draw</small></div>
+                    </div>
+                    <div class="photo-card">
+                        <div class="photo-inner">Prepositions<br>📍<br><small>Learn positions</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="notes">
+            <h2>Final Refinements Applied ✨</h2>
+            <ul>
+                <li><span class="change-highlight">Right 60% only:</span> Photo strip confined to right side, width set to 60%</li>
+                <li><span class="change-highlight">Smaller images:</span> Reduced to 260×200px for better proportions</li>
+                <li><span class="change-highlight">Much slower animation:</span> Increased duration to 11-15 seconds (was 5.5-7.5s)</li>
+                <li><span class="change-highlight">Shorter travel distance:</span> Only 8-10px movement (was 15-22px)</li>
+                <li><span class="change-highlight">No overlapping:</span> Increased gap between cards to 30px and column gaps to 25px</li>
+                <li><span class="change-highlight">Narrower borders:</span> Maintained at 5px for clean look</li>
+                <li>Kept angled grid layout (8° rotation, 3 columns, staggered)</li>
+                <li>Featured card still highlighted with extra border</li>
+            </ul>
+            
+            <h2 style="margin-top: 30px;">Animation Details 🎬</h2>
+            <ul>
+                <li>Each card floats independently with different timing</li>
+                <li>Movement is very subtle - almost imperceptible but adds life</li>
+                <li>Slow ease-in-out creates smooth, breathing effect</li>
+                <li>No cards will touch or overlap during animation</li>
+                <li>Effect is calming rather than distracting</li>
+            </ul>
+            
+            <h2 style="margin-top: 30px;">Ready for Claude Code 🚀</h2>
+            <ul>
+                <li>All vanilla HTML/CSS - no frameworks needed</li>
+                <li>Replace placeholders with actual screenshot AVIF files</li>
+                <li>Adjust brand colors in gradient if needed</li>
+                <li>Add responsive breakpoints for mobile</li>
+                <li>Test animation performance across browsers</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

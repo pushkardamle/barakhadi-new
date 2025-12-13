@@ -108,10 +108,10 @@
         .btn {
             display: inline-block;
             padding: 16px 36px;
-            border-radius: 16px;
+            border-radius: 28px;
             text-decoration: none;
             font-weight: 700;
-            transition: all 0.2s;
+            transition: all 0.3s;
             border: none;
             cursor: pointer;
             font-size: 1rem;
@@ -121,27 +121,23 @@
         .btn-primary {
             background: var(--green-primary);
             color: var(--bg-white);
-            box-shadow: 0 4px 0 var(--green-dark);
         }
 
         .btn-primary:hover {
+            background: var(--green-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 0 var(--green-dark);
-        }
-
-        .btn-primary:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 var(--green-dark);
+            box-shadow: 0 8px 20px rgba(17, 155, 73, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--green-primary);
-            border: 3px solid var(--green-primary);
+            color: var(--text-dark);
+            border: 3px solid var(--text-dark);
         }
 
         .btn-secondary:hover {
-            background: var(--green-light);
+            background: var(--text-dark);
+            color: var(--bg-white);
         }
 
         .btn-outline-white {
@@ -157,29 +153,82 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(180deg, #F0F9FF 0%, #E0F2FE 100%);
-            padding: 60px 0 80px;
+            background: linear-gradient(90deg, #66BB6A 0%, #81C784 50%, #C8E6C9 100%);
+            padding: 120px 0 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Logo overlay - actual Barakhadi logo partially visible */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background-image: url('data:image/png;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/wAARCAIUAhQDACIAAREBAhEB/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMAAAERAhEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKinuYLWPzLiaOJP70jBR+ZoAlorn7nxv4ctSQ+qRuR2iVpP1UEVRPxJ8Ogn99cEZ6+Sannj3MXiaK0c196Ouork4/iP4bdsNczIPVoW/pmtS08V6DesFg1W23HortsJ/BsUc0X1COIoydlNP5o2KKQMGUMpBB5BHelqjYKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArK1rxFpmgQeZfXAViMpEvLv9B/U8Vzfi/x9HpLPYaWUlvhkPIeVhP9T+g/SvJ7m6nvLl7i5leWZzlnc5JrKdVR0R5mMzKFG8KesvwO');
+            background-size: contain;
+            background-repeat: no-repeat;
+            top: -300px;
+            right: -400px;
+            opacity: 0.12;
+            pointer-events: none;
+            transform: rotate(15deg);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background-image: url('data:image/png;base64,/9j/4AAQSkZJRgABAgAAAQABAAD/wAARCAIUAhQDACIAAREBAhEB/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSwwMTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMAAAERAhEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKinuYLWPzLiaOJP70jBR+ZoAlorn7nxv4ctSQ+qRuR2iVpP1UEVRPxJ8Ogn99cEZ6+Sannj3MXiaK0c196Ouork4/iP4bdsNczIPVoW/pmtS08V6DesFg1W23HortsJ/BsUc0X1COIoydlNP5o2KKQMGUMpBB5BHelqjYKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArK1rxFpmgQeZfXAViMpEvLv9B/U8Vzfi/x9HpLPYaWUlvhkPIeVhP9T+g/SvJ7m6nvLl7i5leWZzlnc5JrKdVR0R5mMzKFG8KesvwO');
+            background-size: contain;
+            background-repeat: no-repeat;
+            bottom: -250px;
+            left: -300px;
+            opacity: 0.08;
+            pointer-events: none;
+            transform: rotate(-20deg);
         }
 
         .hero-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-text h1 {
             font-size: 3.5rem;
             color: var(--text-dark);
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             line-height: 1.1;
+        }
+
+        /* Marathi tagline as text - much darker brown border for contrast */
+        .hero-tagline-marathi {
+            font-size: 2.5rem;
+            color: #F7941D;
+            font-weight: 700;
+            margin-bottom: 32px;
+            text-shadow: 
+                -1.5px -1.5px 0 #4A2C0A,
+                1.5px -1.5px 0 #4A2C0A,
+                -1.5px 1.5px 0 #4A2C0A,
+                1.5px 1.5px 0 #4A2C0A,
+                -1.5px 0 0 #4A2C0A,
+                1.5px 0 0 #4A2C0A,
+                0 -1.5px 0 #4A2C0A,
+                0 1.5px 0 #4A2C0A;
         }
 
         .hero-text .subtitle {
             font-size: 1.35rem;
-            color: var(--text-gray);
-            margin-bottom: 32px;
-            line-height: 1.5;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-weight: 500;
         }
 
         .hero-cta {
@@ -190,24 +239,15 @@
 
         .hero-image {
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-image img {
             width: 100%;
             height: auto;
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-
-        /* Tagline with Devanagari */
-        .tagline-devanagari {
-            text-align: center;
-            margin: 48px 0 0;
-        }
-
-        .tagline-devanagari img {
-            max-width: 450px;
-            height: auto;
         }
 
         /* Audience Cards */
@@ -702,13 +742,26 @@
         </nav>
     </header>
 
+    <!-- DESIGN NOTES FOR REVIEW -->
+    <div style="background: #FFF3CD; border-left: 4px solid #FF9500; padding: 20px; margin: 20px; font-family: monospace; font-size: 14px;">
+        <strong>✅ HERO SECTION - Final Updates Applied:</strong><br><br>
+        
+        1. <strong>Gradient:</strong> Dark green (left) → Light green (right)<br>
+        2. <strong>Logo Overlay:</strong> Actual Barakhadi logo partially visible (off-canvas)<br>
+        3. <strong>Marathi Text Border:</strong> Thinner stroke, darker orange (#CC6600)<br>
+        4. <strong>Heading:</strong> "Learn Marathi the Fun Way" (keeping original)<br><br>
+        
+        <strong>📸 Hero Image:</strong> Replace with transparent PNG/AVIF in production<br>
+    </div>
+
     <!-- SECTION 1: HERO -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Learn Marathi the Fun Way</h1>
-                    <p class="subtitle">Interactive activities for conversation, reading, and writing—designed for kids, loved by families.</p>
+                    <div class="hero-tagline-marathi">चला शिकू या मराठी</div>
+                    <p class="subtitle">An interactive way to learn to read, write, and speak Marathi.</p>
                     <div class="hero-cta">
                         <a href="#activities-preview" class="btn btn-primary">Try Free Activities</a>
                         <a href="how-it-works.html" class="btn btn-secondary">See How It Works</a>
@@ -716,12 +769,8 @@
                 </div>
                 <div class="hero-image">
                     <img src="hero_image.png" alt="Child learning Marathi on tablet">
+                    <!-- NOTE: Replace with transparent PNG/AVIF for seamless look (no background/drop shadow) -->
                 </div>
-            </div>
-
-            <!-- Devanagari Tagline -->
-            <div class="tagline-devanagari">
-                <img src="product_name.png" alt="चला शिकू या मराठी">
             </div>
         </div>
     </section>

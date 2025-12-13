@@ -10,6 +10,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/barakhadi_favicon.png">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -45,56 +50,98 @@
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1>Learn Marathi the Fun Way</h1>
-                        <p class="subtitle">Interactive activities for conversation, reading, and writing—designed for kids, loved by families.</p>
+                        <div class="hero-tagline-marathi">चला शिकू या मराठी</div>
+                        <p class="subtitle">An interactive way to learn to read, write, and speak Marathi.</p>
                         <div class="hero-cta">
                             <a href="#activities-preview" class="btn btn-primary">Try Free Activities</a>
                             <a href="how-it-works.html" class="btn btn-secondary">See How It Works</a>
                         </div>
                     </div>
-                    <div class="hero-image">
-                        <img src="assets/images/hero_image.png" alt="Child learning Marathi on tablet" loading="eager">
+                    <div class="photo-strip">
+                        <div class="photo-column photo-column-1">
+                            <div class="photo-card">
+                                <img src="assets/images/ss_clock_result.avif" alt="Clock Learning Activity" loading="eager">
+                            </div>
+                            <div class="photo-card">
+                                <img src="assets/images/ss_numbers_trace_result.avif" alt="Number Tracing Activity" loading="eager">
+                            </div>
+                        </div>
+                        <div class="photo-column photo-column-2">
+                            <div class="photo-card featured-photo">
+                                <img src="assets/images/ss_word_search_result.avif" alt="Word Search Activity" loading="eager">
+                            </div>
+                            <div class="photo-card">
+                                <img src="assets/images/ss_crossword_result.avif" alt="Crossword Puzzle Activity" loading="eager">
+                            </div>
+                        </div>
+                        <div class="photo-column photo-column-3">
+                            <div class="photo-card">
+                                <img src="assets/images/ss_numbers_join_the_dots_result.avif" alt="Join the Dots Activity" loading="eager">
+                            </div>
+                            <div class="photo-card">
+                                <img src="assets/images/ss_prepositions_result.avif" alt="Prepositions Activity" loading="eager">
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Devanagari Tagline -->
-                <div class="tagline-devanagari">
-                    <img src="assets/images/product_name.png" alt="चला शिकू या मराठी" loading="eager">
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: AUDIENCE CARDS (3 Cards) -->
-        <section class="audience-cards">
-            <div class="container">
-                <h2>Who Is This For?</h2>
+        <!-- SECTION 2: What is Barakhadi -->
+        <section class="section-what">
+            <div class="what-content">
+                <div class="section-label">What is Barakhadi?</div>
 
-                <div class="cards-grid">
-                    <!-- Card 1: Parents -->
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">👨‍👩‍👧‍👦</div>
-                        <h3>For Parents</h3>
-                        <p>Help your kids connect with their heritage—effortlessly.</p>
-                        <p class="pain-point">"I want my kids to speak Marathi with their grandparents"</p>
-                        <a href="for-parents.html" class="card-link">Learn More →</a>
-                    </article>
+                <h2 class="what-headline">
+                    The modern way to learn and practice Marathi
+                </h2>
 
-                    <!-- Card 2: Teachers -->
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">🏫</div>
-                        <h3>For Teachers</h3>
-                        <p>Teach Marathi with a complete curriculum and easy classroom tools.</p>
-                        <p class="pain-point">Need structured lessons that engage students?</p>
-                        <a href="for-teachers.html" class="card-link">Explore Features →</a>
-                    </article>
+                <p class="what-subheadline">
+                    Over 300 online interactive activities designed to make language learning feel like play, not study. Access from any device—computer, tablet, or phone.
+                </p>
 
-                    <!-- Card 3: Adult Learners -->
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">📚</div>
-                        <h3>For Adult Learners</h3>
-                        <p>Never too late to learn. Study at your own pace.</p>
-                        <p class="pain-point">Want to connect with your Marathi roots?</p>
-                        <a href="for-learners.html" class="card-link">Start Learning →</a>
-                    </article>
+                <!-- Feature Badges (Hover to reveal more info) -->
+                <div class="feature-badges">
+                    <div class="badge">
+                        <div class="badge-front">
+                            <span class="badge-icon">🎮</span>
+                            <span class="badge-value">300+</span>
+                            <span class="badge-label">Activities</span>
+                        </div>
+                        <div class="badge-back">
+                            <span class="badge-reveal">Reading, writing, and speaking practice</span>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-front">
+                            <span class="badge-icon">📊</span>
+                            <span class="badge-value">3</span>
+                            <span class="badge-label">Skill Levels</span>
+                        </div>
+                        <div class="badge-back">
+                            <span class="badge-reveal">Beginner to advanced progression</span>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-front">
+                            <span class="badge-icon">📱</span>
+                            <span class="badge-value">Any</span>
+                            <span class="badge-label">Device</span>
+                        </div>
+                        <div class="badge-back">
+                            <span class="badge-reveal">Computer, tablet, or phone</span>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-front">
+                            <span class="badge-icon">⏱️</span>
+                            <span class="badge-value">Self</span>
+                            <span class="badge-label">Paced</span>
+                        </div>
+                        <div class="badge-back">
+                            <span class="badge-reveal">Learn on your schedule</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

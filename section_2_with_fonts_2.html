@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 2 - Quicksand + Nunito Typography</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: #f7f7f7;
+            padding: 40px 20px;
+        }
+        
+        .wireframe-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        /* Section 2: What is Barakhadi */
+        .section-what {
+            padding: 100px 80px;
+            background: white;
+        }
+        
+        .what-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .section-label {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #FF9500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        .what-headline {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .what-subheadline {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.5rem;
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+        
+        /* Feature Badges - Non-clickable info cards with hover reveal */
+        .feature-badges {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: white;
+            border: 3px solid;
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: transform 0.26s ease-in-out, box-shadow 0.26s ease-in-out;
+            min-width: 160px;
+            min-height: 140px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .badge:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Glow effects on hover - different color per badge */
+        .badge:nth-child(1):hover {
+            box-shadow: 0 8px 30px rgba(255, 165, 0, 0.4);
+        }
+        
+        .badge:nth-child(2):hover {
+            box-shadow: 0 8px 30px rgba(17, 155, 73, 0.4);
+        }
+        
+        .badge:nth-child(3):hover {
+            box-shadow: 0 8px 30px rgba(255, 179, 0, 0.4);
+        }
+        
+        .badge:nth-child(4):hover {
+            box-shadow: 0 8px 30px rgba(211, 47, 47, 0.4);
+        }
+        
+        /* Individual badge colors and angles */
+        .badge:nth-child(1) {
+            background: #fff5e6;
+            border-color: #FFA500;
+            transform: rotate(-3deg);
+        }
+        
+        .badge:nth-child(2) {
+            background: #e8f5e9;
+            border-color: #119B49;
+            transform: rotate(2deg);
+        }
+        
+        .badge:nth-child(3) {
+            background: #fff3e0;
+            border-color: #FFB300;
+            transform: rotate(-2deg);
+        }
+        
+        .badge:nth-child(4) {
+            background: #ffebee;
+            border-color: #D32F2F;
+            transform: rotate(3deg);
+        }
+        
+        /* Maintain rotation while growing */
+        .badge:nth-child(1):hover {
+            transform: rotate(-3deg) scale(1.05);
+        }
+        
+        .badge:nth-child(2):hover {
+            transform: rotate(2deg) scale(1.05);
+        }
+        
+        .badge:nth-child(3):hover {
+            transform: rotate(-2deg) scale(1.05);
+        }
+        
+        .badge:nth-child(4):hover {
+            transform: rotate(3deg) scale(1.05);
+        }
+        
+        /* Badge content - front stays visible, back fades in */
+        .badge-front {
+            transition: transform 0.26s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .badge:hover .badge-front {
+            transform: translateY(-15px);
+        }
+        
+        /* Hide value and label text on hover */
+        .badge-value,
+        .badge-label {
+            transition: opacity 0.26s ease-in-out;
+            font-family: 'Quicksand', sans-serif;
+        }
+        
+        .badge:hover .badge-value,
+        .badge:hover .badge-label {
+            opacity: 0;
+        }
+        
+        .badge-back {
+            position: absolute;
+            opacity: 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            bottom: 10px;
+            transition: opacity 0.325s ease-in-out 0.065s;
+        }
+        
+        .badge:hover .badge-back {
+            opacity: 1;
+        }
+        
+        .badge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+            transition: font-size 0.26s ease-in-out;
+        }
+        
+        .badge:hover .badge-icon {
+            font-size: 2rem;
+        }
+        
+        .badge-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: inherit;
+            margin-bottom: 6px;
+            display: block;
+        }
+        
+        .badge:nth-child(1) .badge-value {
+            color: #FF9500;
+        }
+        
+        .badge:nth-child(2) .badge-value {
+            color: #119B49;
+        }
+        
+        .badge:nth-child(3) .badge-value {
+            color: #F57C00;
+        }
+        
+        .badge:nth-child(4) .badge-value {
+            color: #C62828;
+        }
+        
+        .badge-label {
+            font-size: 0.95rem;
+            color: #4a4a4a;
+            font-weight: 600;
+        }
+        
+        .badge-reveal {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #2a2a2a;
+            font-weight: 500;
+        }
+        
+        /* Video Section */
+        .video-section {
+            margin-top: 20px;
+        }
+        
+        .video-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        /* Video Container */
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
+            background: #1a1a1a;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: #FF9500;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 149, 0, 0.4);
+        }
+        
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 25px solid white;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+        }
+        
+        .video-text {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-what {
+                padding: 60px 30px;
+            }
+            
+            .what-headline {
+                font-size: 2.5rem;
+            }
+            
+            .what-subheadline {
+                font-size: 1.2rem;
+            }
+            
+            .feature-badges {
+                gap: 20px;
+            }
+            
+            .badge {
+                min-width: 140px;
+            }
+            
+            /* Keep rotation and grow effect on mobile */
+            .badge:nth-child(1) { 
+                transform: rotate(-2deg); 
+            }
+            .badge:nth-child(1):hover { 
+                transform: rotate(-2deg) scale(1.05); 
+            }
+            
+            .badge:nth-child(2) { 
+                transform: rotate(1deg); 
+            }
+            .badge:nth-child(2):hover { 
+                transform: rotate(1deg) scale(1.05); 
+            }
+            
+            .badge:nth-child(3) { 
+                transform: rotate(-1deg); 
+            }
+            .badge:nth-child(3):hover { 
+                transform: rotate(-1deg) scale(1.05); 
+            }
+            
+            .badge:nth-child(4) { 
+                transform: rotate(2deg); 
+            }
+            .badge:nth-child(4):hover { 
+                transform: rotate(2deg) scale(1.05); 
+            }
+        }
+        
+        /* Notes section */
+        .notes {
+            padding: 40px 80px;
+            background: #f8f9fa;
+            border-top: 3px solid #FF9500;
+        }
+        
+        .notes h2 {
+            font-family: 'Quicksand', sans-serif;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .notes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .note-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #119B49;
+        }
+        
+        .note-box h3 {
+            font-family: 'Quicksand', sans-serif;
+            color: #119B49;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .note-box ul {
+            font-family: 'Nunito', sans-serif;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .note-box li {
+            padding: 6px 0;
+            color: #4a4a4a;
+            line-height: 1.5;
+        }
+        
+        .note-box li:before {
+            content: "→ ";
+            color: #119B49;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .highlight {
+            background: #d4edda;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe-container">
+        <!-- SECTION 2: What is Barakhadi -->
+        <section class="section-what">
+            <div class="what-content">
+                <div class="section-label">What is Barakhadi?</div>
+                
+                <h1 class="what-headline">
+                    The modern way to learn and practice Marathi
+                </h1>
+                
+                <p class="what-subheadline">
+                    Over 300 online interactive activities designed to make language learning feel like play, not study. Access from any device—computer, tablet, or phone.
+                </p>
+                
+                <!-- Feature Badges (Hover to reveal more info) -->
+                <div class="feature-badges">
+                    <div class="badge">
+                        <div class="badge-front">
+                            <span class="badge-icon">🎮</span>
+                            <span class="badge-value">300+</span>
+                            <span class="badge-label">Activities</span>
+                        </div>
+                        <div class="badge-back">
+                            <span class="badge-reveal">Reading, writing, and speaking practice</span>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-front">
+                            <span class="badge-icon">📊</span>
+                            <span class="badge-value">3</span>
+                            <span class="badge-label">Skill Levels</span>
+                        </div>
+                        <div class="badge-back">
+                            <span class="badge-reveal">Beginner to advanced progression</span>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-front">
+                            <span class="badge-icon">📱</span>
+                            <span class="badge-value">Any</span>
+                            <span class="badge-label">Device</span>
+                        </div>
+                        <div class="badge-back">
+                            <span class="badge-reveal">Computer, tablet, or phone</span>
+                        </div>
+                    </div>
+                    <div class="badge">
+                        <div class="badge-front">
+                            <span class="badge-icon">⏱️</span>
+                            <span class="badge-value">Self</span>
+                            <span class="badge-label">Paced</span>
+                        </div>
+                        <div class="badge-back">
+                            <span class="badge-reveal">Learn on your schedule</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Section -->
+                <div class="video-section">
+                    <h3 class="video-title">Watch Barakhadi in action</h3>
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <div class="play-button">
+                                <div class="play-icon"></div>
+                            </div>
+                            <div class="video-text">See how it works</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Design Notes -->
+        <div class="notes">
+            <h2>🎨 Typography: Quicksand + Nunito</h2>
+            
+            <div class="notes-grid">
+                <div class="note-box">
+                    <h3>Quicksand (Headlines)</h3>
+                    <ul>
+                        <li><span class="highlight">Main headline:</span> 3.5rem, 700 weight</li>
+                        <li><span class="highlight">Video title:</span> 1.8rem, 700 weight</li>
+                        <li><span class="highlight">Badge labels:</span> 0.95rem, 600 weight</li>
+                        <li><span class="highlight">Feel:</span> Playful, friendly, approachable</li>
+                        <li><span class="highlight">Rounded terminals:</span> Kid-friendly without being childish</li>
+                        <li>Perfect for attention-grabbing headlines</li>
+                    </ul>
+                </div>
+                
+                <div class="note-box">
+                    <h3>Nunito (Body Text)</h3>
+                    <ul>
+                        <li><span class="highlight">Subheadline:</span> 1.5rem, 400 weight</li>
+                        <li><span class="highlight">Badge reveal:</span> 0.9rem, 500 weight</li>
+                        <li><span class="highlight">Section label:</span> 0.9rem, 600 weight</li>
+                        <li><span class="highlight">Feel:</span> Readable, warm, professional</li>
+                        <li><span class="highlight">Excellent readability:</span> Perfect for longer text</li>
+                        <li>Complements Quicksand's playfulness with stability</li>
+                    </ul>
+                </div>
+                
+                <div class="note-box">
+                    <h3>✓ Why This Pairing Works</h3>
+                    <ul>
+                        <li>Both are rounded sans-serifs = visual harmony</li>
+                        <li>Quicksand grabs attention, Nunito provides clarity</li>
+                        <li>Perfect balance: playful + professional</li>
+                        <li>Quicksand's personality, Nunito's readability</li>
+                        <li>Both render Devanagari beautifully</li>
+                        <li>Appeals to kids AND parents/teachers</li>
+                    </ul>
+                </div>
+                
+                <div class="note-box">
+                    <h3>📝 Implementation Notes</h3>
+                    <ul>
+                        <li>Both fonts free via Google Fonts</li>
+                        <li>Fast loading (only 2 font families)</li>
+                        <li>Weights needed: Quicksand 400,600,700 / Nunito 400,600,700,800</li>
+                        <li>Headlines: font-family: 'Quicksand', sans-serif</li>
+                        <li>Body: font-family: 'Nunito', sans-serif</li>
+                        <li>Fallback: sans-serif (system fonts)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h2 style="margin-top: 40px;">🎯 Usage Guidelines</h2>
+            <div class="notes-grid">
+                <div class="note-box">
+                    <h3>Use Quicksand For:</h3>
+                    <ul>
+                        <li>H1, H2, H3 headlines</li>
+                        <li>Section titles</li>
+                        <li>Badge values/labels</li>
+                        <li>Button text</li>
+                        <li>Logo lockup (if needed)</li>
+                        <li>Any text that needs personality</li>
+                    </ul>
+                </div>
+                
+                <div class="note-box">
+                    <h3>Use Nunito For:</h3>
+                    <ul>
+                        <li>Subheadlines</li>
+                        <li>Body paragraphs</li>
+                        <li>Lists and descriptions</li>
+                        <li>Navigation text</li>
+                        <li>Form labels and inputs</li>
+                        <li>Any text that needs readability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
