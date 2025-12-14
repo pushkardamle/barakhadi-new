@@ -214,6 +214,29 @@
         
         .form-input.checking {
             border-color: #6B7280;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10' stroke-dasharray='60' stroke-dashoffset='15'%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 12 12' to='360 12 12' dur='1s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 20px;
+            padding-right: 3rem;
+        }
+        
+        .form-input.email-available {
+            border-color: var(--color-green);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%234CAF50' stroke-width='3'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 20px;
+            padding-right: 3rem;
+        }
+        
+        .form-input.email-taken {
+            border-color: var(--color-red);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23E63946' stroke-width='3'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 20px;
+            padding-right: 3rem;
         }
         
         .form-help {
@@ -693,10 +716,13 @@
             
             if (!validateEmail(email)) {
                 emailIsAvailable = null;
+                emailInput.classList.remove('checking', 'email-available', 'email-taken');
                 return;
             }
             
+            // Show checking state
             emailInput.classList.add('checking');
+            emailInput.classList.remove('email-available', 'email-taken', 'error');
             const emailError = document.getElementById('email-error');
             emailError.textContent = 'Checking availability...';
             emailError.style.color = '#6B7280';
@@ -705,20 +731,32 @@
             emailCheckTimeout = setTimeout(async () => {
                 const result = await checkEmailAvailability(email);
                 
+                // Remove checking state
+                emailInput.classList.remove('checking');
+                
                 if (!result.available) {
                     // Email already exists
                     emailIsAvailable = false;
+                    emailInput.classList.add('email-taken', 'error');
+                    emailInput.classList.remove('email-available');
+                    
+                    // Use native validation for tooltip
+                    emailInput.setCustomValidity('This email address is already registered. Please use a different email.');
+                    
                     showError('email', true);
                     emailError.textContent = 'This email address is already registered. Please use a different email or contact support.';
                     emailError.style.color = '#E63946';
-                    emailInput.classList.add('error');
-                    emailInput.classList.remove('checking');
                 } else {
                     // Email is available
                     emailIsAvailable = true;
+                    emailInput.classList.add('email-available');
+                    emailInput.classList.remove('email-taken', 'error');
+                    
+                    // Clear custom validation
+                    emailInput.setCustomValidity('');
+                    
                     showError('email', false);
                     emailError.classList.remove('visible');
-                    emailInput.classList.remove('error', 'checking');
                 }
             }, 500);
         }
@@ -729,6 +767,8 @@
         // Reset availability when email changes
         emailInput.addEventListener('input', () => {
             emailIsAvailable = null; // Reset when user types
+            emailInput.classList.remove('checking', 'email-available', 'email-taken');
+            emailInput.setCustomValidity(''); // Clear custom validation
         });
         
         function showError(fieldId, show = true) {
@@ -754,23 +794,27 @@
             if (!validateEmail(email)) {
                 showError('email', true);
                 emailError.textContent = 'Please enter a valid email address';
+                emailInput.setCustomValidity('Please enter a valid email address');
                 isValid = false;
             } else if (emailIsAvailable === false) {
                 // Email exists in TalentLMS
                 showError('email', true);
                 emailError.textContent = 'This email address is already registered. Please use a different email or contact support.';
                 emailError.style.color = '#E63946';
+                emailInput.setCustomValidity('This email address is already registered. Please use a different email.');
                 isValid = false;
             } else if (emailIsAvailable === null) {
                 // Email hasn't been checked yet - trigger check and block submission
                 showError('email', true);
                 emailError.textContent = 'Please wait while we verify your email address...';
                 emailError.style.color = '#6B7280';
+                emailInput.setCustomValidity('Please tab out of the email field to verify availability before continuing.');
                 handleEmailBlur(); // Trigger the check
                 isValid = false;
             } else {
                 // Email is valid and available
                 showError('email', false);
+                emailInput.setCustomValidity(''); // Clear any custom validation
             }
             
             // Password
