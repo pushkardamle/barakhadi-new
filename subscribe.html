@@ -682,6 +682,8 @@
         
         // Email blur handler
         let emailCheckTimeout;
+        let emailIsAvailable = null; // Track email availability status
+        
         async function handleEmailBlur() {
             const email = emailInput.value.trim();
             
@@ -690,6 +692,7 @@
             }
             
             if (!validateEmail(email)) {
+                emailIsAvailable = null;
                 return;
             }
             
@@ -703,12 +706,16 @@
                 const result = await checkEmailAvailability(email);
                 
                 if (!result.available) {
+                    // Email already exists
+                    emailIsAvailable = false;
                     showError('email', true);
                     emailError.textContent = 'This email address is already registered. Please use a different email or contact support.';
                     emailError.style.color = '#E63946';
                     emailInput.classList.add('error');
                     emailInput.classList.remove('checking');
                 } else {
+                    // Email is available
+                    emailIsAvailable = true;
                     showError('email', false);
                     emailError.classList.remove('visible');
                     emailInput.classList.remove('error', 'checking');
@@ -718,6 +725,11 @@
         
         // Add email blur event
         emailInput.addEventListener('blur', handleEmailBlur);
+        
+        // Reset availability when email changes
+        emailInput.addEventListener('input', () => {
+            emailIsAvailable = null; // Reset when user types
+        });
         
         function showError(fieldId, show = true) {
             const field = document.getElementById(fieldId);
@@ -735,12 +747,29 @@
         function validateForm() {
             let isValid = true;
             
-            // Email
+            // Email - check format AND availability
             const email = document.getElementById('email').value;
+            const emailError = document.getElementById('email-error');
+            
             if (!validateEmail(email)) {
                 showError('email', true);
+                emailError.textContent = 'Please enter a valid email address';
+                isValid = false;
+            } else if (emailIsAvailable === false) {
+                // Email exists in TalentLMS
+                showError('email', true);
+                emailError.textContent = 'This email address is already registered. Please use a different email or contact support.';
+                emailError.style.color = '#E63946';
+                isValid = false;
+            } else if (emailIsAvailable === null) {
+                // Email hasn't been checked yet - trigger check and block submission
+                showError('email', true);
+                emailError.textContent = 'Please wait while we verify your email address...';
+                emailError.style.color = '#6B7280';
+                handleEmailBlur(); // Trigger the check
                 isValid = false;
             } else {
+                // Email is valid and available
                 showError('email', false);
             }
             
